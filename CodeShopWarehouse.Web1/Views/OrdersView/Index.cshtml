@@ -42,6 +42,9 @@
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.Processed)
+                    </td>    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.ProductId)
@@ -58,7 +61,7 @@
                     <td>
                         @Html.BeginForm("ProcessOrder", "OrdersView", item.Id, FormMethod.Post)
                         <input hidden value="@item.Id" name="id" />
-                        <button type="submit">Proccess</button>
+                        <button type="submit" disabled="@(item.Processed)">Proccess</button>
                     </td>
                 </tr>
             }

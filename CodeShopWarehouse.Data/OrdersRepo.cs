@@ -17,16 +17,9 @@ namespace CodeShopWarehouse.Data
 
         public IOrder UpdateOrder(IOrder o)
         {
-            var orderToUpdate = FakeData.FakeOrders.Find(x => x.Id == o.Id);
-            orderToUpdate = new Order()
-            {
-                Id = o.Id,
-                OrderType = o.OrderType,
-                Processed = true,
-                ProductId = Guid.NewGuid().ToString(),
-                ProcessedDate = DateTimeOffset.Now,
-                ProductStock = o.ProductStock
-            };
+            var orderToUpdate = FakeData.FakeOrders.First(x => x.Id == o.Id);
+            orderToUpdate.Processed = true;
+            orderToUpdate.ProcessedDate = DateTimeOffset.Now;
             return orderToUpdate;
 
         }
