@@ -9,5 +9,6 @@ namespace CodeShopWarehouse.Data
          IOrder UpdateOrder(IOrder o);
          IOrder CreateOrder(IOrder data);
          List<IOrder> GetUnProcessedOrders();
+         List<IOrder> GetOrdersByProductId(string productId);
      }
  }

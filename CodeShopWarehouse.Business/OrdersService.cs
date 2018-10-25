@@ -38,5 +38,10 @@ namespace CodeShopWarehouse.Business
         {
             return _ordersRepo.CreateOrder(order);
         }
+
+        public List<IOrder> GetByProductId(string id)
+        {
+            return _ordersRepo.GetOrdersByProductId(id);
+        }
     }
 }

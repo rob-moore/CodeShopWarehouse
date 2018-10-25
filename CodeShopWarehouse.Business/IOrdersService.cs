@@ -9,5 +9,6 @@ namespace CodeShopWarehouse.Business
         IOrder GetById(int id);
         IOrder ProcessOrder(IOrder order);
         IOrder CreateOrder(IOrder order);
+        List<IOrder> GetByProductId(string id);
     }
 }

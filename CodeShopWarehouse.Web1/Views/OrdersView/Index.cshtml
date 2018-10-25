@@ -1,17 +1,9 @@
 ﻿@model IEnumerable<CodeShopWarehouse.Entities.IOrder>
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Index";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
     <p>
         <a asp-action="Create">Create New</a>
     </p>
@@ -44,9 +36,6 @@
                         @Html.DisplayFor(modelItem => item.Processed)
                     </td>    
                     <td>
-                        @Html.DisplayFor(modelItem => item.Id)
-                    </td>
-                    <td>
                         @Html.DisplayFor(modelItem => item.ProductId)
                     </td>
                     <td>
@@ -59,13 +48,13 @@
                         @Html.DisplayFor(modelItem => item.ProcessedDate)
                     </td>
                     <td>
-                        @Html.BeginForm("ProcessOrder", "OrdersView", item.Id, FormMethod.Post)
-                        <input hidden value="@item.Id" name="id" />
-                        <button type="submit" disabled="@(item.Processed)">Proccess</button>
+                        @using (Html.BeginForm("ProcessOrder", "OrdersView", item.Id, FormMethod.Post))
+                        {
+                            <input hidden value="@item.Id" name="id" />
+                            <button type="submit" disabled="@(item.Processed)">Proccess</button>  
+                        }
                     </td>
                 </tr>
             }
         </tbody>
     </table>
-</body>
-</html>
