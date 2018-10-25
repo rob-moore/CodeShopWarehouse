@@ -34,6 +34,10 @@ namespace CodeShopWarehouse.Data
                 ProductId = Guid.NewGuid().ToString(),
                 ProductStock = data.ProductStock 
             };
+            if (order.Id < 20)
+            {
+                order.Id += 20;
+            }
             FakeData.FakeOrders.Add(order);
 
             return order;
